@@ -1,29 +1,40 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { Link, useLocation } from "react-router-dom"; // Import Link and useLocation
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const location = useLocation(); // Get current location
 
   const menuRef = useRef(null);
   const navbarRef = useRef(null);
   const tl = useRef(null);
   const linkRefs = useRef([]);
 
+  // Define your routes with paths
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Our Story", path: "/our-story" },
+    { name: "Rooms", path: "/rooms" },
+    { name: "Dining", path: "/dining" },
+    { name: "Experiences", path: "/experiences" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Apply white background when scrolling up (after 40px)
       if (currentScrollY < lastScrollY && currentScrollY > 40) {
         setScrolled(true);
       } else if (currentScrollY <= 40) {
         setScrolled(false);
       }
       
-      // Hide/show navbar based on scroll direction
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
         setVisible(false);
       } else {
@@ -34,7 +45,6 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
@@ -43,14 +53,8 @@ const Navbar = () => {
 
     tl.current.fromTo(
       menuRef.current,
-      {
-        y: "-100%",
-      },
-      {
-        y: "0%",
-        duration: 0.8,
-        ease: "power4.inOut",
-      }
+      { y: "-100%" },
+      { y: "0%", duration: 0.8, ease: "power4.inOut" }
     );
   }, []);
 
@@ -67,11 +71,7 @@ const Navbar = () => {
     linkRefs.current.forEach((link, index) => {
       gsap.fromTo(
         link,
-        {
-          opacity: 0,
-          x: 30,
-          rotation: 3,
-        },
+        { opacity: 0, x: 30, rotation: 3 },
         {
           opacity: 1,
           x: 0,
@@ -103,15 +103,10 @@ const Navbar = () => {
     };
   }, [open]);
 
-  const navLinks = [
-    "Home",
-    "Our Story",
-    "Rooms",
-    "Dining",
-    "Experiences",
-    "Gallery",
-    "Contact",
-  ];
+  // Close menu when route changes
+  useEffect(() => {
+    setOpen(false);
+  }, [location]);
 
   return (
     <>
@@ -120,18 +115,18 @@ const Navbar = () => {
         ref={navbarRef}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           visible ? "translate-y-0" : "-translate-y-full"
-        } ${
-          scrolled ? "bg-[#F6F1E8] shadow-md" : "bg-transparent"
-        }`}
+        } ${scrolled ? "bg-[#F6F1E8] shadow-md" : "bg-transparent"}`}
       >
         <div className="px-4 sm:px-6 md:px-8 lg:px-12 h-16 md:h-20 flex items-center justify-between">
           {/* LEFT - LOGO (Mobile) */}
           <div className="md:hidden">
-            <h1 className={`text-xl tracking-[0.2em] font-serif transition-colors duration-300 ${
-              scrolled ? "text-[#2A1A12]" : "text-white"
-            }`}>
-              HERITAGE
-            </h1>
+            <Link to="/">
+              <h1 className={`text-xl tracking-[0.2em] font-serif transition-colors duration-300 ${
+                scrolled ? "text-[#2A1A12]" : "text-white"
+              }`}>
+                HERITAGE
+              </h1>
+            </Link>
           </div>
 
           {/* LEFT - MENU BUTTON (Desktop) */}
@@ -159,11 +154,13 @@ const Navbar = () => {
 
           {/* LOGO - Center (Desktop) */}
           <div className="hidden md:block absolute left-1/2 -translate-x-1/2">
-            <h1 className={`text-3xl lg:text-4xl tracking-[0.3em] font-serif transition-colors duration-300 whitespace-nowrap ${
-              scrolled ? "text-[#2A1A12]" : "text-white"
-            }`}>
-              HERITAGE
-            </h1>
+            <Link to="/">
+              <h1 className={`text-3xl lg:text-4xl tracking-[0.3em] font-serif transition-colors duration-300 whitespace-nowrap ${
+                scrolled ? "text-[#2A1A12]" : "text-white"
+              }`}>
+                HERITAGE
+              </h1>
+            </Link>
           </div>
 
           {/* RIGHT - MENU BUTTON (Mobile) */}
@@ -191,26 +188,30 @@ const Navbar = () => {
 
           {/* RIGHT - BOOK NOW BUTTON (Desktop Only) */}
           <div className="hidden md:flex items-center">
-            <button className="px-6 py-3 bg-[#6B2D34] rounded-full text-white uppercase tracking-[0.2em] text-sm transition duration-500 hover:bg-[#8A3B46] ">
-              Book Now
-            </button>
+            <Link to="/booking">
+              <button className="px-6 py-3 bg-[#6B2D34] rounded-full text-white uppercase tracking-[0.2em] text-sm transition duration-500 hover:bg-[#8A3B46]">
+                Book Now
+              </button>
+            </Link>
 
             {/* Round shape with arrow */}
-            <div className="w-12 h-12 rounded-full bg-[#6B2D34] flex items-center justify-center transition duration-500 hover:bg-[#8A3B46] group cursor-pointer flex-shrink-0">
-              <svg
-                className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </div>
+            <Link to="/booking">
+              <div className="w-12 h-12 rounded-full bg-[#6B2D34] flex items-center justify-center transition duration-500 hover:bg-[#8A3B46] group cursor-pointer flex-shrink-0 ml-2">
+                <svg
+                  className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </div>
+            </Link>
           </div>
         </div>
       </nav>
@@ -224,9 +225,11 @@ const Navbar = () => {
           {/* TOP SECTION - Logo & Close Button */}
           <div className="flex justify-between items-start">
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif tracking-[0.3em] text-[#4A3428]">
-                HERITAGE
-              </h2>
+              <Link to="/" onClick={() => setOpen(false)}>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif tracking-[0.3em] text-[#4A3428]">
+                  HERITAGE
+                </h2>
+              </Link>
             </div>
             <button
               onClick={() => setOpen(false)}
@@ -251,7 +254,7 @@ const Navbar = () => {
               <img
                 src="/images/patan.png"
                 alt="Heritage"
-                className="w-full h-[40vh] mt-6 sm:h-[70vh] object-cover rounded-lg "
+                className="w-full h-[40vh] mt-6 sm:h-[70vh] object-cover rounded-lg"
               />
             </div>
 
@@ -259,23 +262,27 @@ const Navbar = () => {
             <div className="w-full md:w-2/3 lg:w-3/4 flex flex-col items-start md:items-end">
               <div className="flex flex-col items-start md:items-end gap-2 sm:gap-3 w-full">
                 {navLinks.map((item, index) => (
-                  <a
-                    key={item}
+                  <Link
+                    key={item.name}
+                    to={item.path}
                     ref={el => linkRefs.current[index] = el}
-                    href="/"
-                    className="group relative text-[#4A3428] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif tracking-widest transition duration-300 text-left md:text-right opacity-0 w-full md:w-auto"
+                    className={`group relative text-[#4A3428] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif tracking-widest transition duration-300 text-left md:text-right opacity-0 w-full md:w-auto ${
+                      location.pathname === item.path ? 'text-[#6B2D34]' : ''
+                    }`}
                     onClick={() => setOpen(false)}
                   >
-                    {item}
+                    {item.name}
                     {/* Underline animation */}
-                    <span className="absolute -bottom-1 left-0 md:left-auto md:right-0 w-0 h-[2px] bg-[#6B2D34] transition-all duration-300 group-hover:w-full"></span>
+                    <span className={`absolute -bottom-1 left-0 md:left-auto md:right-0 h-[2px] bg-[#6B2D34] transition-all duration-300 ${
+                      location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}></span>
                     {/* Hover scale effect */}
                     <span className="absolute inset-0 bg-[#6B2D34]/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></span>
-                  </a>
+                  </Link>
                 ))}
                 
                 {/* About Us & Round Arrow Buttons */}
-                <div className="flex items-center  mt-2 sm:mt-4 opacity-0 w-full sm:w-auto" ref={el => {
+                <div className="flex items-center mt-2 sm:mt-4 opacity-0 w-full sm:w-auto" ref={el => {
                   if (el && open) {
                     gsap.fromTo(el,
                       { opacity: 0, y: 30 },
@@ -283,29 +290,33 @@ const Navbar = () => {
                     );
                   }
                 }}>
-                  <button 
-                    className="px-6 py-3 bg-[#6B2D34] rounded-full text-white uppercase tracking-[0.2em] text-sm transition duration-500 hover:bg-[#8A3B46] flex-1 sm:flex-none"
-                    onClick={() => setOpen(false)}
-                  >
-                  Book Now
-                  </button>
+                  <Link to="/booking" className="flex-1 sm:flex-none">
+                    <button 
+                      className="px-6 py-3 bg-[#6B2D34] rounded-full text-white uppercase tracking-[0.2em] text-sm transition duration-500 hover:bg-[#8A3B46] w-full sm:w-auto"
+                      onClick={() => setOpen(false)}
+                    >
+                      Book Now
+                    </button>
+                  </Link>
 
                   {/* Round shape with arrow */}
-                  <div className="w-12 h-12 rounded-full bg-[#6B2D34] flex items-center justify-center transition duration-500 hover:bg-[#8A3B46] group cursor-pointer hover:scale-110 hover:shadow-lg flex-shrink-0">
-                    <svg
-                      className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.5}
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </div>
+                  <Link to="/booking">
+                    <div className="w-12 h-12 rounded-full bg-[#6B2D34] flex items-center justify-center transition duration-500 hover:bg-[#8A3B46] group cursor-pointer hover:scale-110 hover:shadow-lg flex-shrink-0 ml-2">
+                      <svg
+                        className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2.5}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
