@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: 'Recoleta';
+  src: url('../public/recoleta.otf') format('opentype');
+  font-display: swap;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Recoleta', sans-serif;
+}
+
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('../public/Metropolis.otf') format('opentype');
+  font-display: swap;
+}
+
+a,
+p,
+span,
+li,
+div,
+button {
+  font-family: 'Metropolis', sans-serif;
+}
+
+body{
+
+  background-color: #F6F1E8;
+}
