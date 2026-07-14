@@ -133,7 +133,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={() => setOpen(true)}
-              className="justify-center items-center flex gap-2 group"
+              className="justify-center items-center flex gap-2 group cursor-pointer"
               aria-label="Open menu"
             >
               <p className={`uppercase tracking-[0.2em] text-sm transition-colors duration-300 ${
@@ -187,9 +187,9 @@ const Navbar = () => {
           </div>
 
           {/* RIGHT - BOOK NOW BUTTON (Desktop Only) */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center ">
             <Link to="/booking">
-              <button className="px-6 py-3 bg-[#6B2D34] rounded-full text-white uppercase tracking-[0.2em] text-sm transition duration-500 hover:bg-[#8A3B46]">
+              <button className="px-6 py-3 bg-[#6B2D34] rounded-full cursor-pointer text-white uppercase tracking-[0.2em] text-sm transition duration-500 hover:bg-[#8A3B46]">
                 Book Now
               </button>
             </Link>

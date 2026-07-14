@@ -1,44 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import allRooms from '../../data/rooms'
 
 const Rooms = () => {
-  const roomData = [
-    {
-      id: 1,
-      title: "Deluxe Suite",
-      description: "Spacious suite with panoramic views",
-      image: "/images/img1.jpeg",
-      area: "45 m²",
-      bed: "King Bed",
-      price: "$299/night"
-    },
-    {
-      id: 1,
-      title: "Deluxe Suite",
-      description: "Spacious suite with panoramic views",
-      image: "/images/img1.jpeg",
-      area: "45 m²",
-      bed: "King Bed",
-      price: "$299/night"
-    },
-    {
-      id: 1,
-      title: "Deluxe Suite",
-      description: "Spacious suite with panoramic views",
-      image: "/images/img1.jpeg",
-      area: "45 m²",
-      bed: "King Bed",
-      price: "$299/night"
-    },
-    {
-      id: 2,
-      title: "Executive Room",
-      description: "Modern comfort with city views",
-      image: "/images/img2.jpeg",
-      area: "35 m²",
-      bed: "Queen Bed",
-      price: "$199/night"
-    }
-  ];
+  const roomData = allRooms.slice(0, 4);
 
   return (
     <>
@@ -77,14 +42,14 @@ const Rooms = () => {
               designed rooms.
             </p>
             <div className="mt-6 sm:mt-8">
-              <a
-                href="/rooms"
+              <Link
+                to="/rooms"
                 className="text-white text-sm uppercase font-semibold relative inline-block pb-1 group cursor-pointer"
               >
                 explore Room
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white transform origin-left transition-transform duration-300 group-hover:scale-x-100 scale-x-0"></span>
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white/30"></span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -108,14 +73,17 @@ const Rooms = () => {
 
             {/* Right - Button */}
             <div className="flex-shrink-0 ">
-              <div className="flex items-center mb-4 lg:mb-0">
-                <a
-                  href="/rooms"
-                  className="px-8 py-3 bg-[#6B2D34] rounded-full text-white text-sm transition duration-500 hover:bg-[#8A3B46] whitespace-nowrap "
+              <div className="flex items-center mb-4 lg:mb-0 ">
+                <Link
+                  to="/rooms"
+                  className="px-8 py-3 bg-[#6B2D34] cursor-pointer  rounded-full text-white text-sm transition duration-500 hover:bg-[#8A3B46] whitespace-nowrap "
                 >
                   View all Rooms
-                </a>
-                <div className="w-12 h-12 rounded-full bg-[#6B2D34] flex items-center justify-center transition duration-500 hover:bg-[#8A3B46] group cursor-pointer hover:scale-110 hover:shadow-lg flex-shrink-0">
+                </Link>
+                <Link
+                  to="/rooms"
+                  className="w-12 h-12 rounded-full cursor-pointer bg-[#6B2D34] flex items-center justify-center transition duration-500 hover:bg-[#8A3B46] group cursor-pointer hover:scale-110 hover:shadow-lg flex-shrink-0"
+                >
                   <svg
                     className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
@@ -129,7 +97,7 @@ const Rooms = () => {
                       d="M14 5l7 7m0 0l-7 7m7-7H3"
                     />
                   </svg>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -141,9 +109,10 @@ const Rooms = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             {roomData.map((room) => (
-              <div
+              <Link
+                to={`/rooms/${room.id}`}
                 key={room.id}
-                className="group relative rounded-lg overflow-visible"
+                className="group relative rounded-lg overflow-visible block"
               >
                 {/* Image Container */}
                 <div className="relative overflow-hidden h-[400px] sm:h-[450px] md:h-[500px] rounded-lg">
@@ -225,7 +194,7 @@ const Rooms = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

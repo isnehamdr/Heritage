@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const nearbyPlaces = [
   {
@@ -44,9 +45,11 @@ const Nearby = () => {
             </p>
             
 
-            <button className="mt-8 px-8 py-3 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              View All Places
-            </button>
+            <Link to="/experiences">
+              <button className="mt-8 px-8 py-3 cursor-pointer bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                View All Places
+              </button>
+            </Link>
           </div>
         </div>
 

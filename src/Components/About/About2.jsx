@@ -1,20 +1,20 @@
 import React from "react";
 const timelineItems = [
   {
-    year: "1247",
-    title: "THE CASTLE IS BORN",
-    text: "Construction of Blackthorn Castle begins under the command of Lord Edric Blackthorn, establishing a stronghold that will shape the region's history for centuries.",
+    year: "1892",
+    title: "THE HOUSE IS BUILT",
+    text: "A Newari merchant family raises this courtyard house in Thamel, carving its windows and doorframes by hand in the style still found across the old city.",
   },
   {
-    year: "1892",
-    title: "THE GRAND RESTORATION",
-    text: "After decades of abandonment, Blackthorn Castle is restored, reviving its former grandeur and opening its gates to the world once again.",
+    year: "2019",
+    title: "THE RESTORATION",
+    text: "After a long, careful restoration following the 2015 earthquake, the house reopens its gates as Heritage — its timber frame and courtyard kept exactly as they were.",
   },
 ];
 const About2 = () => {
   return (
     <section
-      className="relative overflow-hidden py-16 md:py-28"
+      className="relative overflow-hidden py-16 sm:py-0"
       style={{
         backgroundImage: "url('/images/bg-print.svg')",
         backgroundRepeat: "repeat",
@@ -23,14 +23,14 @@ const About2 = () => {
     >
     
 
-     <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 items-center gap-10 px-6 sm:px-8 lg:px-12 py-24 mt-12">
+     <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 items-center gap-10 px-6 sm:px-8 lg:px-12 pb-24 ">
   {/* Left: framed image */}
   <div className="col-span-1">
     <div className="flex justify-center lg:justify-start w-full">
       <div className="border border-[#d9cba3] p-2 sm:p-3 w-full max-w-md sm:max-w-lg">
         <img
           src="/images/about2.jpg"
-          alt="Blackthorn Castle painting"
+          alt="Archive photograph of the heritage house before restoration"
           className="h-64 w-full object-cover sm:h-80 md:h-[420px] lg:h-[560px]"
         />
       </div>
@@ -41,15 +41,15 @@ const About2 = () => {
   <div className="col-span-1">
     <div className="w-full">
       <h2 className="text-3xl sm:text-4xl md:text-[3.6rem]  text-[#2b2b2b]">
-        Centuries of Legend &amp; Power
+        Over a Century in the Same Courtyard
       </h2>
 
       <p className="mt-5 max-w-xl text-sm sm:text-xl text-gray-500">
-        Perched high atop the misty cliffs of Raven's Hollow, Blackthorn
-        Castle has stood as a guardian of the land for over 800 years.
-        Built in 1247, this medieval stronghold has witnessed centuries
-        of royal feuds, legendary battles, and whispered secrets that
-        still linger within its stone walls.
+        Tucked into a quiet lane just off Thamel's busier streets, Heritage
+        has stood as a family home, then a guesthouse, and now a hotel, for
+        more than 130 years. Built in 1892, this Newari courtyard house has
+        witnessed the city grow around it while its timber frame and carved
+        windows have stayed largely untouched.
       </p>
 
       {/* Timeline */}

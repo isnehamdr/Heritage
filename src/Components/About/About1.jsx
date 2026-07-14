@@ -4,22 +4,20 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Replace this with your own image import, e.g.:
-// import heroImage from "./assets/castle-hallway.jpg";
 const HERO_IMAGE = "/images/img3.jpeg";
 
 const FEATURES = [
   {
-    title: "Legends & Lore",
-    body: "Every corridor holds a story the guidebooks skip. Our historians trace the castle's whispered rumors, forgotten feuds, and the ghosts locals still swear by, back to the records that prove them true.",
+    title: "A Family's Story",
+    body: "Every carved window holds a story the guidebooks skip. Our staff trace the house's old trade routes, family feuds, and quiet renovations back to the records that still exist upstairs.",
   },
   {
     title: "Events & Experiences",
-    body: "Candlelit banquets in the great hall, solstice gatherings in the courtyard, and night tours lit only by lantern. Our calendar turns the castle into something you experience, not just visit.",
+    body: "Candlelit dinners in the courtyard, seasonal Newari festivals, and lantern-lit evening walks. Our calendar turns a stay here into something you take part in, not just watch.",
   },
   {
-    title: "Tours & Exclusive Access",
-    body: "Step past the rope lines. Private tours open the archive rooms, the battlements at dusk, and wings closed to the public, guided by the people who know every stone's history.",
+    title: "Tours & Local Access",
+    body: "Step past where most visitors stop. Private tours open the archive room, the rooftop at dusk, and workshops closed to the public, guided by people who know this neighbourhood by heart.",
   },
 ];
 
@@ -116,7 +114,7 @@ export default function About1() {
               ref={kickerRef}
               className="tracking-[0.14em] text-xs uppercase mb-4 text-[#6B2D34]"
             >
-              ✦ Est. in stone, kept in story
+              ✦ Built in timber, kept in story
             </p>
             <h1
               ref={headlineRef}
@@ -124,14 +122,15 @@ export default function About1() {
             >
               Immerse Yourself In
               <br />
-              Our Castle Stories.
+              Our Heritage Story.
             </h1>
           </div>
           <div ref={introRef} className="font-sans text-sm sm:text-[15px] leading-relaxed text-[#4A3428]">
             <p>
-              From immersive night tours to seasonal festivals, we offer unforgettable
-              events throughout the year. Step into history and discover something
-              extraordinary. Book a private tour and explore the castle like never before.
+              From evening lantern walks to seasonal Newari festivals, we offer
+              unforgettable moments throughout the year. Step into the house's
+              history and discover something extraordinary. Book a private tour
+              and explore Thamel like never before.
             </p>
           </div>
         </div>
@@ -142,7 +141,7 @@ export default function About1() {
             <img
               ref={imgRef}
               src={HERO_IMAGE}
-              alt="Candlelit hallway inside the castle, lined with tall doors and a crystal chandelier"
+              alt="Candlelit hallway inside the hotel, lined with carved wooden doors and lanterns"
               className="w-full h-full object-cover brightness-95"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />

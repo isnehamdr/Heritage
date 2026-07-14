@@ -112,7 +112,7 @@ export default function Testimonial({
       {/* Background photo */}
       <img
         src={bgImage}
-        alt="Historic stone bridge leading to a castle"
+        alt="Heritage courtyard at dusk"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/25 to-transparent" />

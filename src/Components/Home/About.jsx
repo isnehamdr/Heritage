@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -144,27 +145,31 @@ const About = () => {
                     </p>
 
                     {/* Buttons */}
-                    <div className="flex justify-center items-center">
-                        <button className="mt-8 px-6 py-3 bg-[#6B2D34] rounded-full text-white uppercase tracking-[0.2em] text-sm transition duration-500 hover:bg-[#8A3B46]">
-                            About Us
-                        </button>
+                    <div className="flex justify-center items-center cursor-pointer">
+                        <Link to="/our-story">
+                            <button className="mt-8 px-6 py-3 bg-[#6B2D34] rounded-full text-white uppercase tracking-[0.2em] text-sm transition duration-500 hover:bg-[#8A3B46]">
+                                About Us
+                            </button>
+                        </Link>
 
                         {/* Round shape with arrow */}
-                        <div className="mt-8 w-12 h-12 rounded-full bg-[#6B2D34] flex items-center justify-center transition duration-500 hover:bg-[#8A3B46] group cursor-pointer">
-                            <svg
-                                className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2.5}
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                                />
-                            </svg>
-                        </div>
+                        <Link to="/our-story">
+                            <div className="mt-8 w-12 h-12 rounded-full bg-[#6B2D34] flex items-center justify-center transition duration-500 hover:bg-[#8A3B46] group cursor-pointer">
+                                <svg
+                                    className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2.5}
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                    />
+                                </svg>
+                            </div>
+                        </Link>
                     </div>
                 </div>
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -155,13 +156,17 @@ const Hero = () => {
               ref={buttons}
               className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4"
             >
-              <button className="bg-[#6B2D34] px-6 sm:px-8 py-3 sm:py-3.5 uppercase tracking-[0.25em] text-xs sm:text-sm text-white transition duration-500 hover:bg-[#82404A] hover:scale-105 shadow-xl">
-                Book Your Stay
-              </button>
+              <Link to="/booking">
+                <button className="w-full sm:w-auto cursor-pointer bg-[#6B2D34] px-6 sm:px-8 py-3 sm:py-3.5 uppercase tracking-[0.25em] text-xs sm:text-sm text-white transition duration-500 hover:bg-[#82404A] hover:scale-105 shadow-xl">
+                  Book Your Stay
+                </button>
+              </Link>
 
-              <button className="border border-[#B08D57] px-6 sm:px-8 py-3 sm:py-3.5 uppercase tracking-[0.25em] text-xs sm:text-sm text-[#F6F1E8] transition duration-500 hover:bg-[#B08D57] hover:text-[#4A3428] hover:scale-105 shadow-xl">
-                Discover Our Story
-              </button>
+              <Link to="/our-story">
+                <button className="w-full sm:w-auto cursor-pointer border border-[#B08D57] px-6 sm:px-8 py-3 sm:py-3.5 uppercase tracking-[0.25em] text-xs sm:text-sm text-[#F6F1E8] transition duration-500 hover:bg-[#B08D57] hover:text-[#4A3428] hover:scale-105 shadow-xl">
+                  Discover Our Story
+                </button>
+              </Link>
             </div>
           </div>
         </div>

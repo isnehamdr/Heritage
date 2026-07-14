@@ -1,6 +1,7 @@
 import React, { useState, useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -201,9 +202,11 @@ const Services = () => {
                                 <p className="text-[#6B2D34]/70 text-md max-w-lg leading-relaxed">
                                     {activeService.description}
                                 </p>
-                                <button className="mt-6 px-8 py-3 bg-[#6B2D34] text-white rounded-full text-sm font-medium hover:bg-[#8A3B46] transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                                    Explore all Services
-                                </button>
+                                <Link to="/experiences">
+                                    <button className="mt-6 px-8 py-3 cursor-pointer bg-[#6B2D34] text-white rounded-full text-sm font-medium hover:bg-[#8A3B46] transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                                        Explore all Services
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
