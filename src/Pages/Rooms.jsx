@@ -149,7 +149,7 @@ const Rooms = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#4A3428] py-16 sm:py-20 px-5 sm:px-8 text-center">
+      {/* <section className="bg-[#4A3428] py-16 sm:py-20 px-5 sm:px-8 text-center">
         <h3 className="font-serif text-3xl sm:text-4xl text-white mb-5">
           Not sure which room suits you?
         </h3>
@@ -162,7 +162,7 @@ const Rooms = () => {
             Ask Us Directly
           </button>
         </Link>
-      </section>
+      </section> */}
     </>
   );
 };
