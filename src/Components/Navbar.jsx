@@ -1,26 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { Link, useLocation } from "react-router-dom"; // Import Link and useLocation
+import { Link, useLocation } from "react-router-dom";
+import { BsArrowUpRight } from "react-icons/bs";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const location = useLocation(); // Get current location
+  const location = useLocation();
 
   const menuRef = useRef(null);
   const navbarRef = useRef(null);
   const tl = useRef(null);
   const linkRefs = useRef([]);
 
-  // Define your routes with paths
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Our Story", path: "/our-story" },
+    { name: "Our Mission", path: "/our-mission" },
     { name: "Rooms", path: "/rooms" },
+    { name: "Services", path: "/services" },
     { name: "Dining", path: "/dining" },
-    // { name: "Experiences", path: "/experiences" },
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
   ];
@@ -103,10 +103,32 @@ const Navbar = () => {
     };
   }, [open]);
 
-  // Close menu when route changes
   useEffect(() => {
     setOpen(false);
   }, [location]);
+
+  // Book Now Button Component - Single unified group
+  const BookNowButton = ({ onClick, className = "" }) => (
+    <div className={`flex items-center group/btn ${className}`}>
+      <Link 
+        to="/booking" 
+        onClick={onClick}
+        className="inline-block"
+      >
+        <button className="bg-[#6B2D34] group-hover/btn:bg-[#8A3B46] transition duration-300 px-7 py-3 rounded-full text-white font-medium text-sm uppercase tracking-[0.2em] cursor-pointer">
+          Book Now
+        </button>
+      </Link>
+      <Link 
+        to="/booking" 
+        onClick={onClick}
+        className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#6B2D34] group-hover/btn:bg-[#8A3B46] group-hover/btn:rotate-45 transition duration-300 cursor-pointer"
+      >
+                       <BsArrowUpRight  size={22} className="text-white" />
+       
+      </Link>
+    </div>
+  );
 
   return (
     <>
@@ -121,11 +143,11 @@ const Navbar = () => {
           {/* LEFT - LOGO (Mobile) */}
           <div className="md:hidden">
             <Link to="/">
-              <h1 className={`text-xl tracking-[0.2em] font-serif transition-colors duration-300 ${
-                scrolled ? "text-[#2A1A12]" : "text-white"
-              }`}>
-                HERITAGE
-              </h1>
+              <img 
+                src={scrolled ? "/images/logo5.png" : "/images/logo5.png"} 
+                alt="Heritage" 
+                className="h-20 w-auto transition-all duration-300"
+              />
             </Link>
           </div>
 
@@ -155,11 +177,11 @@ const Navbar = () => {
           {/* LOGO - Center (Desktop) */}
           <div className="hidden md:block absolute left-1/2 -translate-x-1/2">
             <Link to="/">
-              <h1 className={`text-3xl lg:text-4xl tracking-[0.3em] font-serif transition-colors duration-300 whitespace-nowrap ${
-                scrolled ? "text-[#2A1A12]" : "text-white"
-              }`}>
-                HERITAGE
-              </h1>
+              <img 
+                src={scrolled ? "/images/logo5.png" : "/images/logo5.png"} 
+                alt="Heritage" 
+                className="w-32 transition-all duration-300"
+              />
             </Link>
           </div>
 
@@ -187,31 +209,8 @@ const Navbar = () => {
           </div>
 
           {/* RIGHT - BOOK NOW BUTTON (Desktop Only) */}
-          <div className="hidden md:flex items-center ">
-            <Link to="/booking">
-              <button className="px-6 py-3 bg-[#6B2D34] rounded-full cursor-pointer text-white uppercase tracking-[0.2em] text-sm transition duration-500 hover:bg-[#8A3B46]">
-                Book Now
-              </button>
-            </Link>
-
-            {/* Round shape with arrow */}
-            <Link to="/booking">
-              <div className="w-12 h-12 rounded-full bg-[#6B2D34] flex items-center justify-center transition duration-500 hover:bg-[#8A3B46] group cursor-pointer flex-shrink-0 ml-2">
-                <svg
-                  className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2.5}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </div>
-            </Link>
+          <div className="hidden md:flex items-center">
+            <BookNowButton />
           </div>
         </div>
       </nav>
@@ -226,9 +225,11 @@ const Navbar = () => {
           <div className="flex justify-between items-start">
             <div>
               <Link to="/" onClick={() => setOpen(false)}>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif tracking-[0.3em] text-[#4A3428]">
-                  HERITAGE
-                </h2>
+                <img 
+                  src="/images/logo5.png" 
+                  alt="Heritage" 
+                  className="h-16 sm:h-16 md:h-20 w-auto"
+                />
               </Link>
             </div>
             <button
@@ -272,16 +273,14 @@ const Navbar = () => {
                     onClick={() => setOpen(false)}
                   >
                     {item.name}
-                    {/* Underline animation */}
                     <span className={`absolute -bottom-1 left-0 md:left-auto md:right-0 h-[2px] bg-[#6B2D34] transition-all duration-300 ${
                       location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}></span>
-                    {/* Hover scale effect */}
                     <span className="absolute inset-0 bg-[#6B2D34]/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></span>
                   </Link>
                 ))}
                 
-                {/* About Us & Round Arrow Buttons */}
+                {/* Book Now Button - Offcanvas */}
                 <div className="flex items-center mt-2 sm:mt-4 opacity-0 w-full sm:w-auto" ref={el => {
                   if (el && open) {
                     gsap.fromTo(el,
@@ -290,44 +289,13 @@ const Navbar = () => {
                     );
                   }
                 }}>
-                  <Link to="/booking" className="flex-1 sm:flex-none">
-                    <button 
-                      className="px-6 py-3 bg-[#6B2D34] rounded-full text-white uppercase tracking-[0.2em] text-sm transition duration-500 hover:bg-[#8A3B46] w-full sm:w-auto"
-                      onClick={() => setOpen(false)}
-                    >
-                      Book Now
-                    </button>
-                  </Link>
-
-                  {/* Round shape with arrow */}
-                  <Link to="/booking">
-                    <div className="w-12 h-12 rounded-full bg-[#6B2D34] flex items-center justify-center transition duration-500 hover:bg-[#8A3B46] group cursor-pointer hover:scale-110 hover:shadow-lg flex-shrink-0 ml-2">
-                      <svg
-                        className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2.5}
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                      </svg>
-                    </div>
-                  </Link>
+                  <BookNowButton onClick={() => setOpen(false)} />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Footer */}
-          <div className="text-center pt-4">
-            <p className="text-[#4A3428]/40 text-xs sm:text-sm tracking-[0.2em]">
-              © 2026 HERITAGE
-            </p>
-          </div>
+       
         </div>
       </div>
     </>

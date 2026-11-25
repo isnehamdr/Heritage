@@ -12,7 +12,7 @@ const Rooms = () => {
         {/* Background Image with overlay */}
         <div className="absolute inset-0">
           <img
-            src="/images/img1.jpeg"
+            src="/images/hotel/new (21).jpeg"
             alt="Luxury Room"
             className="w-full h-full object-cover"
           />
@@ -25,12 +25,12 @@ const Rooms = () => {
           <div className="flex justify-between items-start">
             <div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white tracking-wide">
-                Luxury
+              
               </h2>
             </div>
             <div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white tracking-wide">
-                Retreat
+               
               </h2>
             </div>
           </div>
@@ -38,7 +38,7 @@ const Rooms = () => {
           {/* Bottom Section - Description & Link */}
           <div className="flex flex-col items-center text-center">
             <p className="text-white/90 text-base sm:text-lg md:text-xl max-w-sm mx-auto leading-relaxed font-bold">
-              Experience unparalleled comfort and elegance in our thoughtfully 
+              Experience unparalleled comfort and elegance in our thoughtfully
               designed rooms.
             </p>
             <div className="mt-6 sm:mt-8">
@@ -58,7 +58,7 @@ const Rooms = () => {
       {/* Section - Spaces made for Relaxation */}
       <section className="w-full bg-[#F6F1E8] pt-16 sm:pb-12 sm:pt-20 md:pb-16 md:pt-24 px-8 sm:px-16 lg:px-24">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-end justify-between gap-12 md:gap-16">
+          <div className="flex flex-col md:flex-row sm:items-end justify-between gap-12 md:gap-16">
             {/* Left - Spaces made for Relaxation */}
             <div className="flex-1 text-left">
               <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#6B2D34] tracking-wide mb-4">
@@ -73,7 +73,7 @@ const Rooms = () => {
 
             {/* Right - Button */}
             <div className="flex-shrink-0 ">
-              <div className="flex items-center mb-4 lg:mb-0 ">
+              <div className="flex items-center mb-8 lg:mb-0 ">
                 <Link
                   to="/rooms"
                   className="px-8 py-3 bg-[#6B2D34] cursor-pointer  rounded-full text-white text-sm transition duration-500 hover:bg-[#8A3B46] whitespace-nowrap "
@@ -109,8 +109,7 @@ const Rooms = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             {roomData.map((room) => (
-              <Link
-                to={`/rooms/${room.id}`}
+              <div
                 key={room.id}
                 className="group relative rounded-lg overflow-visible block"
               >
@@ -121,7 +120,7 @@ const Rooms = () => {
                     alt={room.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  
+
                   {/* Overlay with Area and Bed Info - Shows on hover */}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
                     {/* Content that slides in from top */}
@@ -143,7 +142,7 @@ const Rooms = () => {
                         </svg>
                         <span className="text-[#2A1A12] text-sm font-medium">{room.area}</span>
                       </div>
-                      
+
                       {/* Bed Type Badge */}
                       <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
                         <svg
@@ -162,6 +161,7 @@ const Rooms = () => {
                         <span className="text-[#2A1A12] text-sm font-medium">{room.bed}</span>
                       </div>
                     </div>
+
                   </div>
                 </div>
 
@@ -177,7 +177,10 @@ const Rooms = () => {
                       </p>
                     </div>
                     {/* Arrow Button */}
-                    <div className="w-10 h-10 rounded-full bg-[#6B2D34] flex items-center justify-center transition-all duration-300 hover:bg-[#8A3B46] group/arrow cursor-pointer hover:scale-110 hover:shadow-lg flex-shrink-0 mt-1">
+                    <Link
+                      to={`/rooms/${room.slug}`}
+                      className="w-10 h-10 rounded-full bg-[#6B2D34] flex items-center justify-center transition-all duration-300 hover:bg-[#8A3B46] group/arrow cursor-pointer hover:scale-110 hover:shadow-lg flex-shrink-0 mt-1"
+                    >
                       <svg
                         className="w-5 h-5 text-white transition-transform duration-300 group-hover/arrow:translate-x-1"
                         fill="none"
@@ -191,10 +194,20 @@ const Rooms = () => {
                           d="M14 5l7 7m0 0l-7 7m7-7H3"
                         />
                       </svg>
-                    </div>
+                    </Link>
+                  </div>
+
+                  {/* Book Now Button - Below card (always visible) */}
+                  <div className="mt-4">
+                    <Link
+                      to={`/booking/${room.slug}`}
+                      className="inline-block w-full sm:w-auto px-6 py-2.5 bg-[#6B2D34] text-white text-sm font-medium rounded-full hover:bg-[#8A3B46] transition-all duration-300 text-center hover:shadow-lg transform hover:scale-105"
+                    >
+                      Book Now
+                    </Link>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>

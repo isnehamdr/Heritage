@@ -40,7 +40,7 @@ const About = () => {
             // Parallax effect for Image 1 (left image)
             if (image1Ref.current) {
                 gsap.to(image1Ref.current, {
-                    y: -80, // Moves up slightly
+                    y: -80,
                     ease: "none",
                     scrollTrigger: {
                         trigger: sectionRef.current,
@@ -52,10 +52,10 @@ const About = () => {
                 });
             }
 
-            // Parallax effect for Image 2 (right image) - opposite direction
+            // Parallax effect for Image 2 (right image)
             if (image2Ref.current) {
                 gsap.to(image2Ref.current, {
-                    y: 80, // Moves down slightly
+                    y: 80,
                     ease: "none",
                     scrollTrigger: {
                         trigger: sectionRef.current,
@@ -74,7 +74,6 @@ const About = () => {
 
     return (
         <div className="">
-            {/* Additional content to continue scrolling */}
             <section
                 ref={sectionRef}
                 className="relative overflow-hidden z-20 bg-[#F6F1E8] pt-8 pb-32 px-4 sm:px-6 border-t border-[#E8DFD5]"
@@ -119,30 +118,43 @@ const About = () => {
                         ))}
                     </div>
 
-                    {/* Since 1975 */}
-                    {/* <p className="text-[#6B2D34] text-md font-semibold mb-8">
-                        Since 2026
-                    </p> */}
-
                     {/* Title */}
                     <h2 className="text-3xl md:text-5xl lg:text-6xl font-light pt-24 text-[#6B2D34] mb-6 leading-tight">
                         Where every
                         <br />
                         stay becomes a Story
                     </h2>
+                       {/* Background Image */}
+                        <div 
+                            className="absolute inset-0 rounded-2xl -m-6 opacity-5 bg-cover bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: "url('/images/Thamel Heritage.png')"
+                            }}
+                        ></div>
 
-                    {/* Description */}
-                    <p className="text-[#4A3428] max-w-3xl mx-auto text-base leading-relaxed">
-                        At Maravilla, hospitality is crafted with intention and elegance. Our spaces are
-                        designed to offer more than comfort — they create an atmosphere where guests can
-                        unwind, connect, and experience.
-                    </p>
+                    {/* Description with Background Image and Overlay */}
+                    <div className="relative max-w-3xl mx-auto">
+                     
+                        
+                        {/* Dark Overlay for readability */}
+                        {/* <div 
+                            className="absolute inset-0 rounded-2xl -m-6 bg-[#6B2D34] opacity-70"
+                            aria-hidden="true"
+                        ></div> */}
+                        
+                        {/* Content */}
+                        <div className="relative px-8 py-10">
+                            <p className="text- max-w-3xl mx-auto text-base leading-relaxed relative">
+                                <span className="text-[#4A3428] text-4xl absolute -left-2 -top-2 opacity-40">"</span>
+                                Is situated in the heart of Thamel, the main tourist place in Nepal. A boutique property having 49 deluxe rooms. Hotel is enriched with Nepalese heritage and wood works. Antique wood carved windows are its highlights on the main facade laced with traditional brick and stone wall.
+                                <span className="text-[#4A3428] text-4xl absolute -bottom-6 -right-2 opacity-40">"</span>
+                            </p>
 
-                    <p className="text-[#4A3428] max-w-3xl mx-auto text-base leading-relaxed mt-4">
-                        Whether you are enjoying a peaceful stay, savoring refined culinary experiences,
-                        or embracing moments of wellness and renewal, Maravilla invites you to slow down
-                        and indulge in life's finer moments.
-                    </p>
+                            <p className="text-[#4A3428] max-w-3xl mx-auto text-base leading-relaxed mt-6 relative">
+                                Traditional heritage looking yet modern infrastructures and mindfully created for every guest's comfort. The perfect shopping spree location for antique gifts, souvenir, and trekking/expedition requisites.
+                            </p>
+                        </div>
+                    </div>
 
                     {/* Buttons */}
                     <div className="flex justify-center items-center cursor-pointer">
@@ -152,7 +164,6 @@ const About = () => {
                             </button>
                         </Link>
 
-                        {/* Round shape with arrow */}
                         <Link to="/our-story">
                             <div className="mt-8 w-12 h-12 rounded-full bg-[#6B2D34] flex items-center justify-center transition duration-500 hover:bg-[#8A3B46] group cursor-pointer">
                                 <svg
@@ -179,15 +190,15 @@ const About = () => {
                         <div className="overflow-hidden rounded-xl">
                             <img
                                 ref={image1Ref}
-                                src="/images/img2.jpeg"
+                                src="/images/hotel/hotel.jpeg"
                                 alt="Thamel Heritage"
                                 className="w-full h-[80vh] rounded-xl object-cover will-change-transform"
                             />
                         </div>
-                        <div className="mt-16 overflow-hidden rounded-xl">
+                        <div className="mt-16 hidden sm:block overflow-hidden rounded-xl">
                             <img
                                 ref={image2Ref}
-                                src="/images/img1.jpeg"
+                                src="/images/thamel.jpeg"
                                 alt="Thamel Heritage"
                                 className="w-full h-[80vh] object-cover rounded-xl will-change-transform"
                             />

@@ -14,7 +14,7 @@ const AboutPage = () => {
         image="/images/img3.jpeg"
       />
       <About1 />
-      <About2 />
+      {/* <About2 /> */}
 
      
     </>

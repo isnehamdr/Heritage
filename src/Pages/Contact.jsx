@@ -7,17 +7,17 @@ const info = [
   {
     icon: FiMapPin,
     label: "Address",
-    value: "Thamel-6, Kathmandu, Nepal",
+    value: "Chibahal, Narsingh Chowk, Thamel-26",
   },
   {
     icon: FiPhone,
     label: "Phone",
-    value: "+977 1 456 7890",
+    value: " 01-5926646/47/48",
   },
   {
     icon: FiMail,
     label: "Email",
-    value: "hello@heritage.com",
+    value: "info@thamelheritagehotel.com",
   },
   {
     icon: FiClock,
@@ -49,7 +49,6 @@ const Contact = () => {
     <>
       <PageBanner
         crumb="Contact"
-        kicker="Say Hello"
         title="Contact Us"
         description="Questions about a stay, a special request, or just want directions from the airport — we're a short reply away."
         image="/images/img1.jpeg"

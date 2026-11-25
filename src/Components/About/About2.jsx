@@ -23,7 +23,7 @@ const About2 = () => {
     >
     
 
-     <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 items-center gap-10 px-6 sm:px-8 lg:px-12 pb-24 ">
+     <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 items-center gap-6 px-4 pb-24 ">
   {/* Left: framed image */}
   <div className="col-span-1">
     <div className="flex justify-center lg:justify-start w-full">

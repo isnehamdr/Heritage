@@ -24,7 +24,7 @@ const Backtotop = () => {
   return (
     <>
       <div
-        className={`fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3 transition-all duration-300 ${
+        className={`fixed bottom-4 right-0 z-50 flex flex-col items-center gap-3 transition-all duration-300 ${
           showButton
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-10 pointer-events-none"
@@ -32,7 +32,7 @@ const Backtotop = () => {
       >
         {/* WhatsApp */}
         <a
-          href="https://wa.me/9779800000000"
+          href="https://wa.me/+9779768585630"
           target="_blank"
           rel="noopener noreferrer"
          className="cursor-pointer"

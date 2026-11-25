@@ -6,25 +6,25 @@ const services = [
     {
         title: "Swimming",
         image:
-            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200",
+            "/images/swimming.jpeg",
         description: "Dive into our crystal-clear infinity pool with stunning ocean views. Perfect for both relaxation and exercise.",
     },
     {
-        title: "Golf Getaways",
+        title: "Meeting & Event",
         image:
-            "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1200",
-        description: "Experience world-class golf courses designed for champions. Enjoy breathtaking views and challenging fairways.",
+            "/images/hotel/new (27).jpeg",
+        description: "Whether it's a business meeting, a private celebration, or a special event, we provide the perfect setting and support to make it memorable.",
     },
     {
         title: "In-Suite Spa",
         image:
-            "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1200",
+            "/images/hotel/new (41).jpeg",
         description: "Rejuvenate with personalized spa treatments in the comfort of your suite. Luxury and wellness combined.",
     },
     {
         title: "Fine Dining",
         image:
-            "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200",
+            "/images/hotel/new (28).jpeg",
         description: "Savor exquisite cuisine crafted by award-winning chefs. An unforgettable culinary journey awaits.",
     },
 ];

@@ -46,7 +46,7 @@ const Booking = () => {
         kicker="Reserve Your Stay"
         title="Book Your Stay"
         description="Tell us your dates and we'll hold the room while our team confirms availability by email."
-        image="/images/hero.avif"
+        image="/images/hotel/new (9).jpeg"
       />
 
       <section className="bg-[#F6F1E8] px-5 sm:px-8 lg:px-12 py-16 sm:py-20">

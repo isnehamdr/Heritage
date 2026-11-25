@@ -4,18 +4,31 @@ import PageBanner from "../Components/Shared/PageBanner";
 import useReveal from "../hooks/useReveal";
 
 const images = [
-  { src: "/images/img1.jpeg", caption: "Courtyard, early morning light" },
-  { src: "/images/img2.jpeg", caption: "The Courtyard Table restaurant" },
-  { src: "/images/h2.avif", caption: "Rooftop Terrace at dusk" },
-  { src: "/images/img3.jpeg", caption: "Candlelit hallway, west wing" },
-  { src: "/images/frame3.png", caption: "Patan Durbar Square, ten minutes away" },
-  { src: "/images/img4.jpeg", caption: "Royal Thamel Suite" },
-  { src: "/images/h1.avif", caption: "Garden Wing veranda" },
-  { src: "/images/frame1.png", caption: "Boudhanath Stupa at sunset" },
-  { src: "/images/about2.jpg", caption: "Original 1892 restoration archive" },
-  { src: "/images/h3.avif", caption: "Heritage Family Suite" },
-  { src: "/images/frame2.png", caption: "Pashupatinath, morning rites" },
-  { src: "/images/h4.avif", caption: "Valley View Room" },
+    { src: "/images/room2.jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/gallery4.jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/gallery6.jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/client.jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/gallery5.jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/gallery1.jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/gallery2.jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/gallery3.jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (2).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (1).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (3).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (4).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (5).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (6).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (7).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (8).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (9).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (10).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (11).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (12).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (13).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (14).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (21).jpeg", caption: "Courtyard, early morning light" },
+  { src: "/images/hotel/new (36).jpeg", caption: "Courtyard, early morning light" },
+
 ];
 
 const Lightbox = ({ image, onClose }) => {
@@ -82,16 +95,15 @@ const Gallery = () => {
     <>
       <PageBanner
         crumb="Gallery"
-        kicker="A Closer Look"
         title="Gallery"
         description="Rooms, courtyards, food, and the neighbourhood around us — tap any photo for a closer look."
-        image="/images/frame4.png"
+        image="/images/hotel/new (2).jpeg"
       />
 
-      <section className="bg-[#F6F1E8] px-5 sm:px-8 lg:px-12 py-16 sm:py-20">
+      <section className="bg-[#F6F1E8] px-4 sm:px-8 lg:px-12 py-16 sm:py-20">
         <div
           ref={gridRef}
-          className="max-w-6xl mx-auto columns-2 md:columns-3 gap-4 sm:gap-5 [column-fill:_balance]"
+          className="max-w-7xl mx-auto columns-2 md:columns-3 gap-4 sm:gap-5 [column-fill:_balance]"
         >
           {images.map((img, i) => (
             <button
@@ -104,11 +116,11 @@ const Gallery = () => {
                 alt={img.caption}
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500 flex items-end">
+              {/* <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500 flex items-end">
                 <p className="p-4 text-white text-xs sm:text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
                   {img.caption}
                 </p>
-              </div>
+              </div> */}
             </button>
           ))}
         </div>

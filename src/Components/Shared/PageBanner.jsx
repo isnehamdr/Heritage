@@ -6,33 +6,33 @@ const PageBanner = ({ kicker, title, description, image, crumb }) => {
   const kickerRef = useRef(null);
   const titleRef = useRef(null);
   const descRef = useRef(null);
-  const lineRef = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    
+    if (kickerRef.current) {
+      tl.fromTo(
+        kickerRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.6 }
+      );
+    }
+    
     tl.fromTo(
-      kickerRef.current,
-      { opacity: 0, y: 10 },
-      { opacity: 1, y: 0, duration: 0.6 }
-    )
-      .fromTo(
-        titleRef.current,
-        { opacity: 0, y: 34 },
-        { opacity: 1, y: 0, duration: 1 },
-        "-=0.3"
-      )
-      .fromTo(
-        lineRef.current,
-        { width: 0 },
-        { width: "64px", duration: 0.7 },
-        "-=0.6"
-      )
-      .fromTo(
+      titleRef.current,
+      { opacity: 0, y: 34 },
+      { opacity: 1, y: 0, duration: 1 },
+      "-=0.3"
+    );
+    
+    if (descRef.current) {
+      tl.fromTo(
         descRef.current,
         { opacity: 0, y: 16 },
         { opacity: 1, y: 0, duration: 0.8 },
         "-=0.5"
       );
+    }
   }, []);
 
   return (
@@ -48,23 +48,12 @@ const PageBanner = ({ kicker, title, description, image, crumb }) => {
         }}
       />
 
-      {/* Stronger, layered overlay for readability */}
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#F6F1E8] via-transparent to-transparent" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/20 to-black/40" />
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-3xl px-5 sm:px-6 text-center text-[#F6F1E8] pt-14 sm:pt-16 md:pt-20">
-        {crumb && (
-          <p className="uppercase text-[10px] sm:text-[11px] md:text-xs tracking-[0.2em] sm:tracking-[0.25em] text-white/60 mb-4 sm:mb-5">
-            <Link to="/" className="hover:text-white transition-colors duration-300">
-              Home
-            </Link>
-            <span className="mx-2 text-white/30">/</span>
-            <span className="text-white/90">{crumb}</span>
-          </p>
-        )}
-
+      {/* Title - Centered */}
+      <div className="relative z-10 w-full max-w-3xl px-5 sm:px-6 text-center text-[#F6F1E8]">
         {kicker && (
           <p
             ref={kickerRef}
@@ -73,29 +62,24 @@ const PageBanner = ({ kicker, title, description, image, crumb }) => {
             {kicker}
           </p>
         )}
-
+        
         <h1
           ref={titleRef}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-[1.1] sm:leading-[1.05] drop-shadow-xl px-2"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.1] sm:leading-[1.05] drop-shadow-xl px-2"
         >
           {title}
         </h1>
-
-        <div
-          ref={lineRef}
-          className="h-[2px] bg-[#D6B06A] mx-auto mt-5 sm:mt-6"
-          style={{ width: 0 }}
-        />
-
-        {description && (
-          <p
-            ref={descRef}
-            className="mt-5 sm:mt-6 max-w-xl sm:max-w-2xl mx-auto text-sm sm:text-base leading-relaxed text-white/90 drop-shadow-md px-2"
-          >
-            {description}
-          </p>
-        )}
       </div>
+
+      {/* Description - Bottom Center */}
+      {description && (
+        <p
+          ref={descRef}
+          className="absolute bottom-12 sm:bottom-16 left-1/2 -translate-x-1/2 z-10 max-w-xl sm:max-w-2xl text-sm sm:text-base leading-relaxed text-white/90 drop-shadow-md px-4 text-center w-full"
+        >
+          {description}
+        </p>
+      )}
     </section>
   );
 };
