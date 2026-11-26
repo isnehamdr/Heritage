@@ -163,7 +163,7 @@ const Hero = () => {
 
               {/* Discover Our Story */}
               <Link
-                to="/our-story"
+                to="/our-mission"
                 className="hidden w-full sm:block sm:w-auto"
               >
                 <button

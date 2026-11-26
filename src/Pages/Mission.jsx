@@ -148,7 +148,7 @@ const Mission = () => {
 
    <div className="w-full max-w-md border border-[#d9cba3] p-2 sm:p-3">
   <img
-    src="/images/turtle.jpg"
+    src="/images/turtle.jpeg"
     alt="Replica of the preserved piece displayed on the lobby wall"
     className="aspect-square w-full object-contain"
     loading="lazy"

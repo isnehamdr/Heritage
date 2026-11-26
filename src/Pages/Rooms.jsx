@@ -133,7 +133,7 @@ const RoomCard = ({ room }) => {
         {/* Book Now Button - Below card (always visible) */}
         <div className="mt-4">
           <Link
-            to={`/booking/${room.slug}`}
+            to={`/rooms/${room.slug}`}
             className="inline-block w-full sm:w-auto px-6 py-2.5 bg-[#6B2D34] text-white text-sm font-medium rounded-full hover:bg-[#8A3B46] transition-all duration-300 text-center hover:shadow-lg transform hover:scale-105"
           >
             Book Now

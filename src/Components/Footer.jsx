@@ -102,7 +102,7 @@ const Footer = () => {
                 </span>
               </Link>
 
-              <Link
+              {/* <Link
                 to="/faq"
                 className="block text-base hover:text-[#D6B06A] transition relative group"
               >
@@ -110,7 +110,7 @@ const Footer = () => {
                   FAQ's
                   <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-[#D6B06A] transition-all duration-300 group-hover:w-full"></span>
                 </span>
-              </Link>
+              </Link> */}
             </div>
           </div>
 

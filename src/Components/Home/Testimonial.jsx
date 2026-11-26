@@ -26,7 +26,7 @@ const exploreCards = [
   {
     eyebrow: "CHOOSE YOUR",
     title: "Stay",
-    image: "/images/hotel/new (8).jpeg",
+    image: "/images/hotel/new (5).jpeg",
     link: "/rooms",
   },
   {
